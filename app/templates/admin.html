@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Админ панель</title>
+    <!-- Мета-теги для адаптивности -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- Пользовательские стили -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Навигация -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row md:justify-between md:items-center">
+            <h1 class="text-2xl font-bold text-blue-600 mb-4 md:mb-0">Админ панель</h1>
+            <div class="flex flex-col md:flex-row">
+                <a href="/export" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-300 mb-2 md:mb-0 md:mr-2 text-center">
+                    <i class="fas fa-file-csv"></i> Экспортировать в CSV
+                </a>
+                <a href="/logout" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300 text-center">
+                    <i class="fas fa-sign-out-alt"></i> Выйти
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="bg-white shadow-lg rounded-lg p-6 overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200 text-sm">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-2 py-3 text-left font-medium text-gray-500 uppercase">ID</th>
+                        <th class="px-2 py-3 text-left font-medium text-gray-500 uppercase">Имя</th>
+                        <th class="px-2 py-3 text-left font-medium text-gray-500 uppercase">Фамилия</th>
+                        <th class="px-2 py-3 text-left font-medium text-gray-500 uppercase">Курс</th>
+                        <th class="px-2 py-3 text-left font-medium text-gray-500 uppercase">Направление</th>
+                        <th class="px-2 py-3 text-left font-medium text-gray-500 uppercase">Telegram</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    {% for submission in submissions %}
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-2 py-4">{{ submission.id }}</td>
+                        <td class="px-2 py-4">{{ submission.first_name }}</td>
+                        <td class="px-2 py-4">{{ submission.last_name }}</td>
+                        <td class="px-2 py-4">{{ submission.course }}</td>
+                        <td class="px-2 py-4">{{ submission.direction }}</td>
+                        <td class="px-2 py-4">
+                            <a href="https://t.me/{{ submission.telegram }}" target="_blank" class="text-blue-600 hover:underline">
+                                <i class="fab fa-telegram-plane"></i> {{ submission.telegram }}
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Культурно-массовый комитет ФБКИ</title>
+    <!-- Мета-теги для адаптивности -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Подключение стилей -->
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- Splide.js CSS для карусели -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.9/dist/css/splide.min.css">
+    <!-- Пользовательские стили -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <!-- Подключение шрифта "Benzin Bold" -->
+    <style>
+        @font-face {
+            font-family: 'Benzin Bold';
+            src: url('/static/fonts/benzin-bold.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            font-family: 'Benzin Bold', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-blue-200 overflow-x-hidden">
+    <!-- Фиксированная кнопка для перехода к форме -->
+    <button onclick="scrollToForm()" class="fixed bottom-5 right-5 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 focus:outline-none">
+        <i class="fas fa-edit fa-lg"></i>
+    </button>
+
+    <!-- Навигация -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-blue-600">КМК ФБКИ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный баннер с градиентом -->
+    <section class="text-center py-20 bg-gradient-to-r from-blue-500 to-purple-600">
+        <div class="py-20">
+            <h1 class="text-4xl md:text-6xl text-white" id="typing-header"></h1>
+            <p class="text-xl md:text-2xl text-white mt-4 animate__animated animate__fadeInUp">
+                Поздравляем, ты выиграл лотерею!🥳<br>
+                Думаем, что тебе не терпится узнать, какой же приз😉
+            </p>
+            <button class="mt-8 px-6 py-3 bg-white text-blue-600 rounded-full hover:bg-gray-100 transition duration-300 animate__animated animate__zoomIn" onclick="scrollToContent()">Узнать больше</button>
+        </div>
+    </section>
+
+    <!-- Основной контент -->
+    <main class="max-w-5xl mx-auto px-4" id="content">
+        <!-- Описание приза -->
+        <section class="text-center my-16">
+            <h2 class="text-3xl md:text-4xl text-blue-600 font-bold mb-6">ТЫ ВЫИГРАЛ ПРИГЛАШЕНИЕ НА КАСТИНГ В КУЛЬТУРНО-МАССОВЫЙ КОМИТЕТ ПОС ФБКИ!</h2>
+            <p class="text-lg md:text-xl leading-relaxed">
+                Да, ты, именно ты, кто сейчас читает это сообщение, мы тебя ждем)<br>
+                Если не знаешь, кто мы (да даже если и знаешь), то листай ниже)
+            </p>
+            <!-- Кнопка для связи в Telegram -->
+            <p class="mt-6">
+                (Если ты не можешь посетить кастинг в этот день, то <button class="text-blue-600 underline focus:outline-none" onclick="openModal()">напиши нам в Telegram</button>)
+            </p>
+        </section>
+
+        <!-- О нас -->
+        <section class="my-16">
+            <h3 class="text-2xl md:text-3xl font-bold text-center mb-8">Кто вообще этот ваш культурно-массовый комитет?</h3>
+            <p class="text-lg md:text-xl leading-relaxed text-justify">
+                Главное дело, чем занимается в принципе КМК – это создание мероприятий на уровне факультета. Мы продумываем и проводим:
+            </p>
+            <ul class="mt-6 space-y-4">
+                <li class="flex items-center">
+                    <i class="fas fa-music text-green-500 text-2xl mr-3"></i>
+                    <span class="text-lg md:text-xl">Концерты</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-map text-green-500 text-2xl mr-3"></i>
+                    <span class="text-lg md:text-xl">Квесты</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-glass-cheers text-green-500 text-2xl mr-3"></i>
+                    <span class="text-lg md:text-xl">Клубные тусовки</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-bullhorn text-green-500 text-2xl mr-3"></i>
+                    <span class="text-lg md:text-xl">Акции</span>
+                </li>
+                <li class="flex items-center">
+                    <i class="fas fa-star text-green-500 text-2xl mr-3"></i>
+                    <span class="text-lg md:text-xl">Крупные мероприятия</span>
+                </li>
+            </ul>
+            <p class="text-lg md:text-xl leading-relaxed text-justify mt-6">
+                Мы продумываем концепции, пишем сценарии, придумываем интерактивы, занимаемся оформлением аудиторий на время мероприятия и многим многим другим. Это если вкратце.
+            </p>
+            <p class="text-lg md:text-xl leading-relaxed text-justify mt-4">
+                На бумаге звучит как будто скучно, но на самом деле это совсем не так. Быть членом КМК – значит иметь возможность воплощать свои идеи в жизнь, преподносить что-то свое и показывать свой внутренний мир через мероприятия. Являясь членом КМК, вы можете рассчитывать, что вас всегда поддержат и услышат, к тому же вы получите вагон и маленькую тележку эмоций от организации мероприятия, а еще посмотрите на это с другой стороны, уже не как участник, а как организатор.
+            </p>
+            <p class="text-lg md:text-xl leading-relaxed text-justify mt-4">
+                В культурно-массовом комитете состоит большое количество наших студентов с разных курсов и направлений, но мы - одна большая команда, которая рада принять к себе новых участников. Если ты боишься, что не сможешь влиться в коллектив и тебе будет из-за этого некомфортно, не беспокойся, после кастинга у нас запланирован тимбилдинг для всего состава КМК. Поэтому мы будем рады видеть тебя у нас!!
+            </p>
+        </section>
+
+        <!-- Навыки -->
+        <section class="my-16">
+            <h3 class="text-2xl md:text-3xl font-bold text-center mb-8">Навыки, которые ты прокачаешь вместе с нами:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-center">
+                    <i class="fas fa-lightbulb text-yellow-500 text-3xl mr-4"></i>
+                    <span class="text-lg md:text-xl">Креативность</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-users text-blue-500 text-3xl mr-4"></i>
+                    <span class="text-lg md:text-xl">Работа в команде</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-calendar-check text-green-500 text-3xl mr-4"></i>
+                    <span class="text-lg md:text-xl">Профессиональные навыки в сфере event-менеджмента</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-brain text-purple-500 text-3xl mr-4"></i>
+                    <span class="text-lg md:text-xl">Гибкость мышления</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-comments text-pink-500 text-3xl mr-4"></i>
+                    <span class="text-lg md:text-xl">Коммуникативные навыки</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-heart text-red-500 text-3xl mr-4"></i>
+                    <span class="text-lg md:text-xl">Эмпатия и эмоциональный интеллект</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Карусель изображений -->
+        <section class="my-16">
+            <div class="splide" id="image-carousel">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <!-- Добавьте свои изображения (5 штук) -->
+                        <li class="splide__slide"><img src="/static/images/photo1.jpg" alt="Карусель 1" class="w-full h-64 object-cover rounded-lg shadow-lg"></li>
+                        <li class="splide__slide"><img src="/static/images/photo2.jpg" alt="Карусель 2" class="w-full h-64 object-cover rounded-lg shadow-lg"></li>
+                        <li class="splide__slide"><img src="/static/images/photo3.jpg" alt="Карусель 3" class="w-full h-64 object-cover rounded-lg shadow-lg"></li>
+                        <li class="splide__slide"><img src="/static/images/photo4.jpg" alt="Карусель 4" class="w-full h-64 object-cover rounded-lg shadow-lg"></li>
+                        <li class="splide__slide"><img src="/static/images/photo5.jpg" alt="Карусель 5" class="w-full h-64 object-cover rounded-lg shadow-lg"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Изображения по тексту -->
+        <section class="my-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Добавьте свои изображения (5 штук) -->
+                <img src="/static/images/text_photo1.jpg" alt="Фото 1" class="w-full h-64 object-cover rounded-lg shadow-lg">
+                <img src="/static/images/text_photo2.jpg" alt="Фото 2" class="w-full h-64 object-cover rounded-lg shadow-lg">
+                <img src="/static/images/text_photo3.jpg" alt="Фото 3" class="w-full h-64 object-cover rounded-lg shadow-lg">
+                <img src="/static/images/text_photo4.jpg" alt="Фото 4" class="w-full h-64 object-cover rounded-lg shadow-lg">
+                <img src="/static/images/text_photo5.jpg" alt="Фото 5" class="w-full h-64 object-cover rounded-lg shadow-lg">
+            </div>
+        </section>
+
+        <!-- Форма -->
+        <section class="my-16" id="form-section">
+            <h3 class="text-2xl md:text-3xl font-bold text-center mb-8">Заполните форму для участия:</h3>
+            {% if message %}
+                <!-- Сообщение об успешной отправке -->
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-6 rounded relative text-center">
+                    <strong class="font-bold">Спасибо!</strong>
+                    <span class="block sm:inline"> Ваша форма успешно отправлена. Мы свяжемся с вами в ближайшее время.</span>
+                </div>
+            {% else %}
+                <form method="post" action="/submit" class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                    <div class="mb-6">
+                        <label for="first_name" class="block text-lg font-medium text-gray-700 mb-2">Имя</label>
+                        <input type="text" name="first_name" id="first_name" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div class="mb-6">
+                        <label for="last_name" class="block text-lg font-medium text-gray-700 mb-2">Фамилия</label>
+                        <input type="text" name="last_name" id="last_name" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div class="mb-6">
+                        <label for="course" class="block text-lg font-medium text-gray-700 mb-2">Курс</label>
+                        <select name="course" id="course" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
+                            <option value="" disabled selected>Выберите курс</option>
+                            <option value="1">1 курс</option>
+                            <option value="2">2 курс</option>
+                            <option value="3">3 курс</option>
+                            <option value="4">4 курс</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label for="direction" class="block text-lg font-medium text-gray-700 mb-2">Направление</label>
+                        <select name="direction" id="direction" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
+                            <option value="" disabled selected>Выберите направление</option>
+                            <option value="ПИ РПО">ПИ РПО</option>
+                            <option value="ПИ Дизайн">ПИ Дизайн</option>
+                            <option value="Реклама и связи с общественностью">Реклама и связи с общественностью</option>
+                            <option value="Туризм">Туризм</option>
+                            <option value="Сервис">Сервис</option>
+                            <option value="Управление персоналом">Управление персоналом</option>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <label for="telegram" class="block text-lg font-medium text-gray-700 mb-2">Никнейм в Telegram</label>
+                        <input type="text" name="telegram" id="telegram" required class="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">Отправить</button>
+                </form>
+            {% endif %}
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-6">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            &copy; {{ current_year }} by <div class="inline-block"><a href="https://t.me/sna_art" class="text-blue-600 hover:text-blue-800">S.N.A.</a></div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg p-8 relative">
+            <h3 class="text-2xl font-bold mb-4">Свяжитесь с нами в Telegram</h3>
+            <p class="mb-6">Нажмите на кнопку ниже, чтобы перейти в наш Telegram-чат.</p>
+            <a href="https://t.me/a_lina_1_2" class="px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300">Написать в Telegram</a>
+            <button class="absolute top-2 right-2 text-gray-600 hover:text-gray-800 focus:outline-none" onclick="closeModal()">
+                <i class="fas fa-times fa-2x"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <!-- Alpine.js для простого управления состоянием -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+    <!-- Splide.js для карусели -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.9/dist/js/splide.min.js"></script>
+    <!-- TypewriterJS для эффекта печати -->
+    <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@latest/dist/core.js"></script>
+    <!-- Пользовательские скрипты -->
+    <script>
+        // Функция для плавного скролла к контенту
+        function scrollToContent() {
+            document.getElementById('content').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Функция для плавного скролла к форме
+        function scrollToForm() {
+            document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Инициализация карусели и эффекта печати заголовка
+        document.addEventListener('DOMContentLoaded', function () {
+            // Инициализация карусели
+            new Splide('#image-carousel', {
+                type: 'loop',
+                perPage: 1,
+                autoplay: true,
+                interval: 3000, // Интервал в миллисекундах
+            }).mount();
+
+            // Эффект печати для заголовка на баннере
+            const headerElement = document.getElementById('typing-header');
+            const headerText = 'Привет, студент!👋';
+
+            if (headerElement) {
+                const typewriter = new Typewriter(headerElement, {
+                    loop: false,
+                    delay: 75,
+                });
+                typewriter.typeString(headerText).start();
+            }
+        });
+
+        // Функции для модального окна
+        function openModal() {
+            document.getElementById('modal').classList.remove('hidden');
+        }
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
