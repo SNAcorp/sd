@@ -86,7 +86,7 @@ async def admin_dashboard(request: Request):
     db = SessionLocal()
     submissions = db.query(Submission).all()
     db.close()
-    submissions = submissions.sort(key=lambda s: s.id, reverse=True)
+    submissions.sort(key=lambda s: s.id, reverse=True)
     return templates.TemplateResponse("admin.html", {"request": request, "submissions": submissions})
 
 @app.get("/logout")
