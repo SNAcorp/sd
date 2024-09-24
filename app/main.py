@@ -42,6 +42,7 @@ async def submit_form(
     direction: str = Form(...),
     telegram: str = Form(...),
 ):
+    telegram = telegram.split("/")[-1] if telegram.startswith("https://t.me") else telegram[1:] if telegram.startswith("@") else telegram
     db = SessionLocal()
     submission = Submission(
         first_name=first_name,
