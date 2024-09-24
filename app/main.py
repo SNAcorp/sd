@@ -24,7 +24,15 @@ templates = Jinja2Templates(directory="app/templates")
 # Загрузка статики
 from fastapi.staticfiles import StaticFiles
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
-
+@app.on_event("startup")
+async def setup_database():
+    db = SessionLocal()
+    submissions = db.query(Submission).all()
+    for submission in submissions:
+        submission.telegram = submission.telegram.strip()
+        submission.telegram = submission.telegram.split("/")[-1] if submission.telegram.startswith("https://t.me") else submission.telegram[1:] if submission.telegram.startswith("@") else submission.telegram
+    db.commit()
+    db.close()
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
     current_year = datetime.now().year
@@ -42,6 +50,7 @@ async def submit_form(
     direction: str = Form(...),
     telegram: str = Form(...),
 ):
+    telegram = telegram.strip()
     telegram = telegram.split("/")[-1] if telegram.startswith("https://t.me") else telegram[1:] if telegram.startswith("@") else telegram
     db = SessionLocal()
     submission = Submission(
